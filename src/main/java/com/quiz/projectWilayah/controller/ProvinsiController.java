@@ -56,7 +56,8 @@ public class ProvinsiController {
 //		}
 //		
 //		return ResponseEntity.ok(result);
-		List<ProvinsiEntity> provinsiEntity = serviceProv.getProvinsiById(idProv);
+//		List<ProvinsiEntity> provinsiEntity = serviceProv.getProvinsiById(idProv);
+		ProvinsiEntity provinsiEntity = provinsiRepository.findById(idProv).get();
 		return ResponseEntity.ok(provinsiEntity);	
 	}
 	

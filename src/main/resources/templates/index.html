@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet"
+	href="/webjars/bootstrap/4.5.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/webjars/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" th:src="@{/css/mystyle.css}">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" >
+</head>
+<body>
+
+	<div th:replace="~{/fragments/header}"></div>
+
+	<h1 class="text-center mt-5">Table Provinsi</h1>
+
+	<br>
+	<br>
+
+	<div class="container">
+		<div class="card p-4">
+			<h5 class="text-center">Form Provinsi</h5>
+			<form>
+				<div class="form-group">
+					<label>Provinsi Code</label> <input required id="provinsiCode"
+						class="form-control" name="provinsiCode" type="text">
+				</div>
+				<div class="form-group">
+					<label>Provinsi Name</label> <input required id="provinsiName"
+						class="form-control" name="provinsiName" type="text">
+				</div>
+				<div id="btn-form">
+					<button id="btn-save" type="submit" class="btn btn-block btn-primary">Simpan</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="container mt-4">
+		<table class="table" id="table-provinsi">
+			<thead>
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Provinsi Code</th>
+					<th scope="col">Provinsi Name</th>
+					<th scope="col">Status</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody id="body-person">
+			</tbody>
+		</table>
+	</div>
+
+	<div class=" text-center mt-5">
+		<small>Provinsi Page Created 2020</small>
+	</div>
+
+	<script type="text/javascript"
+		src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="/webjars/bootstrap/4.5.3/js/bootstrap.min.js"></script>
+	<script th:src="@{/js/script.js}"></script>
+	<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+	<script>
+		tableProvinsi.getProvinsi();
+		$('#btn-save').click(function(){
+			formProvinsi.save();
+			tableProvinsi.create();
+		})
+	</script>
+</body>
+</html>
